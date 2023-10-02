@@ -39,7 +39,7 @@ runs:
 
       MODEL_DIR=$PWD
       pushd .
-      tree .
+      # tree .
       TARGET=$(readlink ${{ inputs.filename }})
       cd $(dirname ${{ inputs.filename }})
       cp --remove-destination $TARGET $(basename ${{ inputs.filename }})
@@ -56,7 +56,7 @@ runs:
   - name: Push model
     run: |
       cd model
-      tree .
+      # tree .
       flux push artifact \
         --creds chanwit:${{ inputs.ghcrToken }} \
         oci://ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}/${{ inputs.image }} \
