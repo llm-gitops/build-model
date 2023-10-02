@@ -30,10 +30,11 @@ runs:
       MODEL_REPO: ${{ inputs.repository }}
       MODEL_FILE: ${{ inputs.filename }}
     run: |
-      python download.py
-
       rm -rf model || true
       mkdir model
+      
+      python download.py
+
       cd model
 
       MODEL_DIR=$PWD
